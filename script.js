@@ -1,11 +1,13 @@
-document.addEventListener("mousemove", (e) => {
+const bubbleContainer = document.getElementById("bubble-container");
+
+document.addEventListener("mousemove", (event) => {
   const bubble = document.createElement("div");
   bubble.classList.add("bubble");
-  bubble.style.left = `${e.clientX - 25}px`;
-  bubble.style.top = `${e.clientY - 25}px`;
-  document.body.appendChild(bubble);
+  bubble.style.left = `${event.clientX - 10}px`;
+  bubble.style.top = `${event.clientY - 10}px`;
+  bubbleContainer.appendChild(bubble);
 
   setTimeout(() => {
-    document.body.removeChild(bubble);
-  }, 2000);
+    bubble.remove();
+  }, 5000);
 });

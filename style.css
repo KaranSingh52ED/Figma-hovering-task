@@ -7,7 +7,6 @@ body {
   font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
-  overflow: hidden;
 }
 
 /* Heading Styles */
@@ -176,21 +175,35 @@ body {
 
 }
 
-.bubble {
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  background-color: rgb(34, 255, 0);
-  border-radius: 50%;
-  animation: bubble 2s ease-in-out forwards;
+
+#bubble-container {
+  position: relative;
+  height: 10vh;
 }
 
-@keyframes bubble {
+.bubble {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: rgba(68, 255, 0, 0.5);
+  animation: bubble-float 5s ease-in-out forwards, bubble-fade 5s ease-in-out forwards;
+}
+
+@keyframes bubble-float {
   0% {
-      transform: scale(0);
+    transform: translate(0, +50);
   }
   100% {
-      transform: scale(1);
-      opacity: 0;
+    transform: translate(0, 500vh);
+  }
+}
+
+@keyframes bubble-fade {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
